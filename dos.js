@@ -19,9 +19,51 @@ function mostrar()
 	let cat;
 	let prec=0;
 	let max=0
+	let maxlac=0;
 	let txtmax;
 	let txtmaxlac;
 	let cantBeb=0;
+	flag=0;
+	flagL=0;
+	maxlac=0;
+
+
+	do{
+		nom = prompt("Ingrese el nombre de un artículo: ");
+		
+		do{
+		cat = prompt("Ingrese su categoria: ").toLowerCase();
+	}while(!(cat == "almacen" || cat == "lacteos" || cat == "lácteos" || cat == "limpieza" || cat == "bebidas"));
+
+	do{
+		prec = parseInt(prompt("Ingrese su precio: "));
+	}while(!(prec >= 0 && prec <= 1000));
+
+	if (flag==0 || prec > max){
+		max = prec;
+		txtmax = "El artículo con mayor precio es: "+nom+" con un precio de $"+max;
+		flag = 1;
+	}
+	if ((flagL==0 && cat == "lacteos") || (cat == "lacteos" && prec > maxlac)){
+		maxlac = prec;
+		txtmaxlac = "El artículo con mayor precio de la categoría lácteos es: "+nom+" con un precio de $"+maxlac;
+		flagL = 1;
+	}
+	if (cat == "bebidas"){
+		cantBeb++;
+	}
+	
+		x = prompt("Quieres introducir otro artículo?").toLowerCase();
+
+	}while(x == "si");
+
+	document.write(txtmax+"<br>");
+	document.write(txtmaxlac+"<br>");
+	document.write("La cantidad de artículos ingresados de categoría bebidas es: "+cantBeb);
+
+/*
+
+
 
 	while(x == "si"){ 
 
@@ -59,5 +101,5 @@ function mostrar()
 	document.write(txtmax+"<br>");
 	document.write(txtmaxlac+"<br>");
 	document.write("La cantidad de artículos ingresados de categoría bebidas es: "+cantBeb);
-
+*/
 }
