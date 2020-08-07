@@ -63,7 +63,7 @@ function mostrar()
 
 /*
 
-
+    En el examen la validacion no se puede hacer con If 
 
 	while(x == "si"){ 
 
